@@ -1,0 +1,33 @@
+// variables 
+@import "../components/variables.scss";
+
+
+// null 
+@import "../components/null.scss";
+
+
+// fonts 
+@import "../components/fonts.scss";
+
+body{
+    background-color: $backgroundColor;
+}
+
+// buttons 
+@import "../components/buttons.scss";
+
+
+// container 
+@import "../components/container.scss";
+
+// header 
+@import "../components/blocks/header.scss";
+
+//titles
+@import "../components/titles.scss";
+
+//projects styles
+@import "../components/blocks/projects.scss";
+
+//footer 
+@import "../components/blocks/footer.scss";

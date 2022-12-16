@@ -1,0 +1,170 @@
+// variables 
+@import "../components/variables.scss";
+
+
+// null 
+@import "../components/null.scss";
+
+
+// fonts 
+@import "../components/fonts.scss";
+
+body{
+    background-color: $backgroundColor;
+}
+
+// buttons 
+@import "../components/buttons.scss";
+
+
+// container 
+@import "../components/container.scss";
+
+// header 
+@import "../components/blocks/header.scss";
+
+//titles
+@import "../components/titles.scss";
+
+
+.first-section {
+
+    &__inner {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    &__image {
+        height: 400px;
+        width: 100%;
+        background-image: url(../../assets/services/images/Rectangle\ 152.jpg);
+        background-position: center;
+        background-size: cover;
+        @media (max-width:900px) {
+            height: 350px;
+        }
+        @media (max-width:720px) {
+            height: 300px;
+        }
+        @media (max-width:576px) {
+            height: 250px;
+        }
+        
+    }
+
+    &__subtitle{
+        margin-top: 90px;
+        margin-bottom: 40px;
+        @media (max-width:720px) {
+            margin-top: 70px;
+        }
+        @media (max-width:576px) {
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .title{
+        margin-bottom: 120px;
+        @media (max-width:720px) {
+            margin-bottom: 70px;
+        }
+    }
+
+}
+
+.services-list {
+    // .services-list__inner
+    &__inner {
+    }
+    // .services-list__service
+    &__service {
+        padding-top: 85px;
+        border-top: 2px solid $primaryColor;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        @media (max-width:900px) {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+    &__service+&__service{
+        margin-top: 100px;
+    }
+
+    // .services-list__service-name
+    &__service-name {
+
+        display: flex;
+
+        &_reverse{
+            order: 1;
+            justify-content: end;
+            @media (max-width:900px) {
+                order: 0;
+            }
+        }
+    }
+
+    &__service-name-inner{
+        width: 70%;
+
+        @media (max-width:900px) {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .block-title{
+            margin-top: 0px;
+        }
+
+        .block-text{
+            @media (max-width:900px) {
+                width: 80%;
+                text-align: center;
+                margin: 24px auto 35px;
+            }
+            @media (max-width:576px) {
+                width: 100%;
+                text-align: center;
+                margin: 24px auto 35px;
+            }
+        }
+    }
+    // .services-list__service-description
+    &__service-description {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 40px;
+        @media (max-width:600px) {
+            grid-template-columns: 1fr;
+        }
+        
+    }
+}
+
+
+
+.service-description {
+    // .service-description__title
+    &__title {
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+    }
+    // .service-description__text
+    &__text {
+        line-height: 24px;
+        text-align: justify
+    }
+}
+
+
+
+//connect  
+@import "../components/blocks/connect.scss";
+
+//footer 
+@import "../components/blocks/footer.scss";

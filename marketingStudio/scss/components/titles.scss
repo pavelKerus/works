@@ -1,0 +1,57 @@
+.title{
+    font-family: Lora;
+    font-size: 78px;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center;
+    color: $primaryColor;
+
+    @media (max-width:1000px) {
+        font-size: 54px;
+    }
+
+    @media (max-width:720px) {
+        font-size: 44px;
+    }
+
+    @media (max-width:576px) {
+        font-size: 32px;
+    }
+}
+
+.block-title {
+    font-family: lora;
+    font-weight: 700;
+    font-size: 48px;
+    margin-top: 35px;
+    line-height: 50px;
+    text-transform: capitalize;
+
+    @media (max-width:1000px) {
+        font-size: 36px;
+        line-height: 45px;
+    } 
+    
+    @media (max-width:720px) {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
+.block-subtitle {
+    font-family: inter;
+    font-size: 16px;
+    line-height: 16px;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    font-weight: 700;
+    // text-align: left;
+    // margin-top: 36px;
+    color: $primaryColor;
+    line-height: 24px;
+}
+
+.block-text {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}

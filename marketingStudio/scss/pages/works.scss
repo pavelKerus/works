@@ -1,0 +1,218 @@
+// variables styles
+@import "../components/variables.scss";
+
+
+// null styles
+@import "../components/null.scss";
+
+
+// fonts styles
+@import "../components/fonts.scss";
+
+body{
+    background-color: $backgroundColor;
+}
+
+// buttons styles
+@import "../components/buttons.scss";
+
+
+// container styles
+@import "../components/container.scss";
+
+// header style
+@import "../components/blocks/header.scss";
+
+//titles
+@import "../components/titles.scss";
+
+
+.works {
+    
+    &__inner {
+    }
+
+    a{
+        display: block;
+    }
+    
+    &__title{
+        margin-top: 100px;
+        @media (max-width:1000px) {
+            margin-top: 70px;
+        }
+        
+    }
+
+    &__subtitle{
+        margin: 35px auto;
+        text-align: center;
+        margin-bottom: 150px;
+        @media (max-width:1000px) {
+            margin-top: 12px;
+            margin-bottom: 100px;
+        }
+        @media (max-width:1000px) {
+            margin-bottom: 70px;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 100px;
+        @media (max-width:1000px) {
+            grid-row-gap: 70px;
+        }
+
+
+        @media (max-width:600px) {
+            grid-template-columns: 1fr;
+        }
+        
+    }
+    
+    &__list-item {
+        
+    }
+
+   
+
+    &__work-image {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 600px;
+        position: relative;
+        @media (max-width:1080px) {
+            height: 550px;
+        }
+        @media (max-width:1000px) {
+            height: 500px;
+        }
+        @media (max-width:900px) {
+            height: 450px;
+        }
+        @media (max-width:800px) {
+            height: 400px;
+        }
+        @media (max-width:720px) {
+            height: 350px;
+        }
+        @media (max-width:600px) {
+            height: 550px;
+        }
+        @media (max-width:500px) {
+            height: 500px;
+        }
+        @media (max-width:480px) {
+            height: 450px;
+        }
+        @media (max-width:400px) {
+            height: 400px;
+        }
+        @media (max-width:375px) {
+            height: 350px;
+        }
+
+
+        &:after { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+            background: rgba(0,0,0,0.8);  
+            opacity: 0;
+            transition: all 0.5s; 
+        }
+
+        &:before { 
+            content: "Learn more";
+            z-index: 2;
+            font-size: 24px;
+            color: white; 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            opacity: 0;
+            transform: translate(-50%,-50%); 
+        }
+
+        &:hover:before, &:hover:after { 
+            opacity: 1; 
+        }
+        
+        &_cela {
+            background-image: url(../../assets/works/works/images/cela.svg)
+        }
+        
+        &_marie {
+            background-image: url(../../assets/works/works/images/marie.svg)
+        }
+        
+        &_mfk {
+            background-image: url(../../assets/works/works/images/mfk.svg)
+        }
+        
+        &_softy {
+            background-image: url(../../assets/works/works/images/softy.svg)
+        }
+        
+        &_omi {
+            background-image: url(../../assets/works/works/images/omi.svg)
+        }
+        
+        &_holandria {
+            background-image: url(../../assets/works/works/images/holandria.svg)
+        }
+    }
+    
+    &__work-title {
+        text-align: center;
+        text-decoration: none;
+        position: relative;
+        width: fit-content;
+        margin: 42px auto 12px;
+        @media (max-width:1000px) {
+            margin-top: 30px;
+        }
+        @media (max-width:480px) {
+            margin-top: 24px;
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            left: 0px;
+            top: 25px;
+            width: 0px;
+            border-bottom: 2px solid $primaryColor;
+            transition: all 0.5s;
+        }
+    
+        &:hover::after{
+            width: calc(100% - 8px);
+        }
+
+
+    }
+    
+    &__work-description {
+        text-align: center;
+        @media (max-width:800px) {
+            width: 90%;
+            margin: 0 auto;
+        }
+        @media (max-width:600px) {
+            width: 100%;
+        }
+    }
+}
+
+//connect block 
+@import "../components/blocks/connect.scss";
+
+//footer 
+@import "../components/blocks/footer.scss";

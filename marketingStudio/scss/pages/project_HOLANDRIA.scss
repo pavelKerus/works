@@ -1,0 +1,43 @@
+// variables 
+@import "../components/variables.scss";
+
+
+// null 
+@import "../components/null.scss";
+
+
+// fonts 
+@import "../components/fonts.scss";
+
+body{
+    background-color: $backgroundColor;
+}
+
+// buttons 
+@import "../components/buttons.scss";
+
+
+// container 
+@import "../components/container.scss";
+
+// header 
+@import "../components/blocks/header.scss";
+
+//titles
+@import "../components/titles.scss";
+
+//projects styles
+@import "../components/blocks/projects.scss";
+
+.project-image{
+    &__HOLANDRIA-1{
+        padding-bottom: 100%;
+    }
+
+    &__HOLANDRIA-2{
+        padding-bottom: 120%;
+    }
+}
+
+//footer 
+@import "../components/blocks/footer.scss";
