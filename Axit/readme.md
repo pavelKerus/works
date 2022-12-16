@@ -1,1 +1,1 @@
-https://pavelKerus.github.io/works/Axit/
+https://pavelKerus.github.io/works/Axit/index.html

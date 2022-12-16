@@ -1,1 +1,1 @@
-https://pavelKerus.github.io/works/index.html
+https://pavelKerus.github.io/works/marketingStudio/index.html

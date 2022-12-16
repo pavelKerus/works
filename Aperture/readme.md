@@ -1,1 +1,1 @@
-https://pavelKerus.github.io/works/Aperture/
+https://pavelKerus.github.io/works/Aperture/index.html
