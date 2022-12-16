@@ -1,1 +1,1 @@
-https://kerus2014.github.io/it-academy/Aperture/
+https://pavelKerus.github.io/works/Aperture/

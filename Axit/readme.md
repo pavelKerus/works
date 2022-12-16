@@ -1,1 +1,1 @@
-https://kerus2014.github.io/it-academy/Axit/
+https://pavelKerus.github.io/works/Axit/
