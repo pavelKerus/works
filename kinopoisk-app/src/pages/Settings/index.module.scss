@@ -1,0 +1,135 @@
+@import "../../styles/variables.scss";
+
+.settings{
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+
+  &__item{
+    
+  }
+
+  &__title{
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 600;
+  }
+
+  &__container{
+    padding: 40px;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: 24px;
+    border-radius: 10px;
+
+    @media (max-width:1000px) {
+      grid-column-gap: 24px;
+    }
+
+    @media (max-width:640px) {
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width:480px) {
+      padding: 40px 20px;
+    }
+
+    &_switch-theme{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+  }
+
+  &__subtitle{
+    font-weight: 700;
+  }
+
+  &__theme-text{
+    color:$contextGrey;
+    font-weight: 500;
+  }
+
+  &__switcher{
+    cursor: pointer;
+
+    & input{
+      display: none;
+
+      &:checked+.settings__switcher-container{
+        background-color: $primaryColor;
+
+        &:hover{
+          background-color: $primaryColor2;
+        }
+
+        & .settings__switcher-round{
+          left:14px;
+        }
+      }
+
+      &:checked~.settings__switcher-round{
+        left:15px;
+      }
+    }
+  }
+
+  &__switcher-container{
+    position: relative;
+    width: 32px;
+    height: 20px;
+    padding: 2px;
+    background-color: $secondary;
+    border-radius: 10px;
+    transition: all 0.25s;
+
+    &:hover{
+      background-color: $contextGrey;
+    }
+  }
+
+  &__switcher-round{
+    position: absolute;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background-color: $contextWhite;
+    transition: all 0.25s;
+  }
+
+  &__new-password{
+
+    & label+label{
+      margin-top: 24px!important;
+    }
+  }
+
+  &__button{
+    width: 266px;
+
+    @media (max-width:576px) {
+      width: 100%;
+    }
+  }
+
+  &__button-container{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+}
+
+label+label{
+  margin-top: 0px!important;
+}
+
+:global(.dark) .settings__container{
+  background-color: $dark;
+}
+
+.settings__item+.settings__item{
+  margin-top: 40px;
+}

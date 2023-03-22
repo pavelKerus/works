@@ -1,0 +1,34 @@
+@import "../../styles/variables.scss";
+
+.button {
+  height: 48px;
+  outline: 2px solid $contextGrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover{
+    background-color:$contextGrey;
+  }
+
+  &:hover *{
+    fill:$primaryColor2;
+  }
+}
+
+.active *{
+ fill:$primaryColor;
+}
+
+.disabled{
+  background-color: $secondary;
+}
+
+:global(.dark) .button{
+  background-color:$graphite;
+  outline:0px;
+
+  &:hover *{
+    fill:$contextWhite;
+  }
+}

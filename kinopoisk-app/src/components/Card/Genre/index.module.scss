@@ -1,0 +1,23 @@
+@import "../../../styles/variables.scss";
+
+.genre{
+  color:$contextGrey;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.genre::after{
+  content: "";
+  display: inline-block;
+  position: relative;
+  margin: 0px 8px;
+  bottom: 2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 100px;
+  background-color: $contextGrey;
+}
+
+.genre:last-child::after{
+display: none;
+}

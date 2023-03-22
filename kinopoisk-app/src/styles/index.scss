@@ -1,0 +1,9 @@
+@import './fonts.scss';
+@import './null.scss' ;
+@import "./variables";
+
+
+.dark{
+  background-color:$backgroundColorDark;
+  color: $backgroundColorLight;
+}

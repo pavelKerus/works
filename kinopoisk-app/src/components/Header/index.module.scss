@@ -1,0 +1,23 @@
+@import "../../styles/variables.scss";
+
+.header{
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  background-color: $backgroundColorLight;
+
+  &__container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &__content{
+    height: fit-content;
+    display: flex;
+    align-items: center;
+  }
+}
+
+:global(.dark) .header{
+  background-color: $backgroundColorDark;
+}

@@ -1,0 +1,36 @@
+@import "../../styles/variables.scss";
+
+.card-recommend{
+  display: flex;
+  flex-direction: column;
+  // width: 256px;
+
+  &__image-container{
+    height: 357px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+
+  &__image{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
+
+  &__title{
+    margin-top: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    color: $contextWhite;
+
+    &:hover{
+      color: $primaryColor;
+    }
+  }
+
+}
+
+.card-recommend+.card-recommend{
+  margin-left: 40px;
+}

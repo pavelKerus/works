@@ -1,0 +1,57 @@
+@import "../../styles/variables.scss";
+
+.navbar{
+  width: 256px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: calc(100vh - 108px);
+  margin-right: 40px;
+  flex-shrink: 0;
+  position: fixed;
+  left: 64px;
+  top: 88px;
+  z-index: 3;
+
+  @media (max-width:1400px) {
+    margin: 0 auto;
+    top:0;
+    right: -256px;
+    padding-top: 46px;
+    background-color: $backgroundColorLight;
+    margin-right: 0px;
+    height: 100%;
+    padding-left: 40px;
+    transition: all 0.25s;
+  }
+
+  &__nav-list{
+    width: 100%;
+    height: fit-content;
+
+    @media (max-width:1400px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__rights{
+    position: fixed;
+    bottom: 64px;
+
+    @media (max-width:1400px) {
+      bottom: 40px;;
+    }
+  }
+
+}
+
+.open{
+  right: 0px;
+}
+
+:global(.dark) .navbar{
+  background-color: $backgroundColorDark;
+}
+

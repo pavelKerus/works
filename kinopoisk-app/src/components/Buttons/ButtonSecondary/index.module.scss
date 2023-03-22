@@ -1,0 +1,9 @@
+@import "../../../styles/variables.scss";
+
+.button-secondary{
+  background-color:$graphite;
+
+  &:hover{
+    color:$contextGrey;
+  }
+}

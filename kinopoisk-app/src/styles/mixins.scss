@@ -1,0 +1,30 @@
+@mixin container{
+  padding: 0 64px 0 64px;
+
+  @media (max-width:1400px) {
+      padding-left: 40px;
+      padding-right: 40px;
+  }
+
+  @media (max-width:1000px) {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  @media (max-width:576px) {
+      padding-left: 24px;
+      padding-right: 24px;
+  }
+
+  @media (max-width:480px) {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@mixin title{
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 80px;
+  margin-bottom: 72px;
+}

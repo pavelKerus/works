@@ -1,0 +1,9 @@
+@import "../../../styles/variables.scss";
+
+.rating{
+  font-weight: 600;
+  padding: 2px 8px;
+  background-color:$tertiaryGreen;
+  color: $contextWhite;
+  border-radius: 6px;
+}

@@ -1,0 +1,19 @@
+@import "../../../styles/variables.scss";
+
+.button{
+  height: 48px;
+  min-width: 200px;
+  padding: 10px 20px;
+  color: $contextWhite;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+.disabled{
+  color: $contextGrey;
+  background-color: $secondary;
+}

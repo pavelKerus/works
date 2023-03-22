@@ -1,0 +1,73 @@
+@import "../../../styles/variables.scss";
+
+
+:global(.dark) .search__input{
+  background-color: $graphite;
+  border: none;
+}
+
+:global(.dark) .search__button{
+  background-color: $graphite;
+  border: none;
+}
+
+.search{
+  max-width: 1200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  margin-left: 138px;
+
+  &:hover{
+    opacity: 0.7;
+  }
+
+  @media (max-width:1400px) {
+    margin-right: 72px;
+  }
+  
+  &__input{
+    height: 48px;
+    outline: none;
+    border: none;
+    padding: 0px 0px 0px 20px;
+    background-color: $backgroundColorLight;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid $contextGrey;
+
+    &:focus{
+      border: 2px solid $primaryColor;
+    }
+
+  }
+
+  &__button{
+    height: 44px;
+    width: 44px;
+    position: absolute;
+    right: 2px;
+    background-color: $backgroundColorLight;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border: none;
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+.search__button:hover *{
+  fill:$contextWhite;
+}
+
+:global(.dark) .search__input{
+  color: $contextWhite;
+}
+
+
+

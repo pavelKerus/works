@@ -1,0 +1,44 @@
+@import "../../styles/variables.scss";
+
+.filters{
+  height: 100%;
+  width: 518px;
+  padding: 40px;
+  right: -518px;
+  top: 0px;
+  position: fixed;
+  z-index: 3;
+  background-color: $dark;
+
+  &__title{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__close-button{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__header{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__buttons-group{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 40px;
+  }
+}
+
+.open{
+  right: 0px;
+}
