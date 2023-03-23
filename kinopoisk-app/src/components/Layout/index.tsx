@@ -10,10 +10,11 @@ import styles from './index.module.scss'
 export const Layout = () => {
   const menuIsOpen = useSelector((state:AppState) => state.burgerMenu.isOpen) 
   const theme = useSelector((state:AppState) => state.theme.themeState)
+  const filterIsOpen = useSelector((state:AppState) => state.filter.isOpen)
 
   return (
     <div className={theme == "dark" ? `${styles.root} dark` : styles.root}>
-      <div className={menuIsOpen ? `${styles['background']} ${styles['background-open']}` : styles['background']}>
+      <div className={menuIsOpen || filterIsOpen ? `${styles['background']} ${styles['background-open']}` : styles['background']}>
       </div>
       <Header/>
       <NavBar/>

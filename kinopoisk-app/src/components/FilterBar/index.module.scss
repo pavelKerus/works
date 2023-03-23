@@ -9,6 +9,7 @@
   position: fixed;
   z-index: 3;
   background-color: $dark;
+  transition-duration: 0.25s;
 
   &__title{
     font-weight: 600;
@@ -25,6 +26,10 @@
     justify-content: flex-end;
     align-items: center;
     cursor: pointer;
+
+    &:hover{
+      opacity: 0.5;
+    }
   }
 
   &__header{
