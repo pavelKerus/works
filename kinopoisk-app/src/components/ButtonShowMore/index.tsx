@@ -9,9 +9,9 @@ interface Props{
 
 export const ButtonShowMore = (props:Props) => {
   return(
-    <button className={styles["button"]}>
+    <button className={styles["button"]} onClick={props.onClick}>
       <p>Show more</p> 
-      <ClipLoader size={20} color="#7B61FF" className={styles.spinner} loading={props.loading} onClick={props.onClick}/>
+      <ClipLoader size={20} color="#7B61FF" className={styles.spinner} loading={props.loading} />
     </button>
   )
 }

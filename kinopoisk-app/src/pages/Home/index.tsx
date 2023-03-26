@@ -8,6 +8,7 @@ import { asyncLoadMoviesAction } from '../../reduxTools/movies/actions';
 import { useResize } from '../../components/useResize';
 import { array } from '../../components/posts';
 import { ButtonShowMore } from '../../components/ButtonShowMore';
+import { MovieItem } from '../../types/MovieItem';
 
 export const Home = () => {
   const movies = useSelector((state:AppState) => state.movies.docs)
@@ -66,10 +67,8 @@ export const Home = () => {
             genres={movie.genres}
           />)}
       </div>
-      <ButtonShowMore loading={false} onClick={() => {
-        setLoading(true)
-        setPage(page+1)
-        }
+      <ButtonShowMore loading={loading} onClick={() => { setLoading(true)
+        setPage(page+1)} 
       }/>
     </div>
   )
