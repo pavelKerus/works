@@ -1,3 +1,11 @@
+@import "../../styles/variables.scss";
+
+.home{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .cards-grid{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -59,3 +67,4 @@
     grid-template-columns: 1fr;
   }
 }
+

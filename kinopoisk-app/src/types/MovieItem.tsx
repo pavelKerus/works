@@ -198,10 +198,11 @@ export interface MovieItem{
     "has3D"?: boolean | null
   },
   "images"?: {
-    "framesCount"?: number | null
+    "framesCount"?: number | null,
+    "postersCount"?: number | null
   },
   "genres"?: Genres[] | [],
-  "lists"?: [],
+  "lists"?: [] | never[],
   "updatedAt"?: string | null,
   "updateDates"?: [],
   "ticketsOnSale"?: boolean | null,

@@ -23,3 +23,126 @@ export const moviesResponseById = (id:string | undefined):Promise<any> => {
   return fetch(request)
     .then((response) => response.json())
 };
+
+export const registerUser = async (
+  username: string,
+  email: string,
+  password: string
+) => {
+  const URL = "https://studapi.teachmeskills.by/auth/users/";
+  const request = new Request(URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username,
+      email,
+      password,
+    }),
+  });
+
+  const  response = await fetch(request);
+  const result = await response.json()
+  return {
+    ok:response.ok,
+    status: response.status,
+    data:result
+  }
+  // return fetch(request).then((res) => res.json());
+};
+
+
+export const activateUser = async (uid: string, token: string) => {
+  const URL = "https://studapi.teachmeskills.by/auth/users/activation/";
+  const request = new Request(URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      uid,
+      token,
+    }),
+  });
+
+  const response = await fetch(request);
+  // const result = await response.json();
+  const result = await (response.ok ? Promise.resolve(null) : response.json())
+  return {
+    ok: response.ok,
+    status: response.status,
+    data: result,
+  };
+  // return fetch(request).then((res) => res.json());
+};
+
+export const getTokensUser = async (email: string, password: string) => {
+  const URL = "https://studapi.teachmeskills.by/auth/jwt/create/";
+  const request = new Request(URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      "email":email,
+      "password":password,
+    }),
+  });
+
+  const response = await fetch(request);
+  console.log(response);
+  const result = await response.json();
+  console.log(result);
+  return {
+    ok: response.ok,
+    status: response.status,
+    data: result,
+  };
+};
+
+export const fetchRefreshToken = async (refreshToken: string) => {
+  const url = 'https://studapi.teachmeskills.by/auth/jwt/refresh/'
+  const params = {
+      method: 'POST',
+      headers: {
+          'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+          "refresh": refreshToken
+      })
+  }
+  const request = new Request(url, params)
+
+  const response = await fetch(request)
+  const result = await response.json()
+
+  return {
+      ok: response.ok,
+      status: response.status,
+      data: result
+  }
+}
+
+export const getUser = async (token: string) => {
+  const url = 'https://studapi.teachmeskills.by/auth/users/me/'
+  const params = {
+      method: 'GET',
+      headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`
+      }
+  }
+  const request = new Request(url, params)
+  const response = await fetch(request)
+  const result = await response.json()
+  return {
+      ok: response.ok,
+      status: response.status,
+      data: result
+  }
+}
+
+
+
+

@@ -6,13 +6,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   &:hover{
     background-color:$contextGrey;
   }
 
   &:hover *{
-    fill:$primaryColor2;
+    fill:$primaryColor;
   }
 }
 
@@ -29,6 +30,6 @@
   outline:0px;
 
   &:hover *{
-    fill:$contextWhite;
+    fill:$primaryColor;
   }
 }

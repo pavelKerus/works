@@ -13,6 +13,8 @@ import { ResetPasswordStepOne } from './pages/ResetPasswordStepOne';
 import { ResetPasswordStepTwo } from './pages/ResetPasswordStepTwo';
 import { ResetPasswordStepThree } from './pages/ResetPasswordStepThree';
 import { Settings } from './pages/Settings';
+import { RegistrationConfirmation } from './pages/RegistrationConfirmation';
+import { RequireAuth } from './hoc/RequireAuth';
 
 // movieItem/:id
 
@@ -24,7 +26,11 @@ function App() {
         <Route path="movieItem/:id" element={<MovieItem />} />
         <Route path="*" element={<NotFound />} />
         <Route path="favorites" element={<Favorites />} />
-        <Route path="settings" element={<Settings />} />
+        <Route path="settings" element={
+        <RequireAuth>
+          <Settings />
+        </RequireAuth>
+        } />
       </Route>
       <Route path="/form" element={<LayoutForm />}>
         <Route index element={<SignIn/>} />
@@ -33,6 +39,7 @@ function App() {
         <Route path="signInResetOne" element={<ResetPasswordStepOne/>} />
         <Route path="signInResetTwo" element={<ResetPasswordStepTwo/>} />
         <Route path="signInResetThree" element={<ResetPasswordStepThree/>} />
+        <Route path="registrationConfirmation" element={<RegistrationConfirmation/>} />
       </Route>
     </Routes>
   );

@@ -1,0 +1,120 @@
+@import "../../../styles/variables.scss"; 
+
+.user{
+  align-items: center;
+  cursor: pointer;
+  width: 267px;
+  position: relative;
+  margin-left: auto;
+
+  @media (max-width:1400px) {
+    display: none;
+  }
+
+  &__container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover{
+      opacity: 0.7;
+    }
+  }
+
+  &__info{
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon{
+    width: 48px;
+    flex-basis: 48px;
+    height: 48px;
+    background-color: $primaryColor;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: capitalize;
+  }
+
+  &__name{
+    margin-left: 20px;
+    width: fit-content;
+    flex-shrink: 0;
+  }
+
+  &__arrow{
+    margin-left: 20px;
+    transition-duration: 0.25s;
+
+    &_close{
+      rotate: 90deg;
+    }
+
+    &_open{
+      rotate: 270deg;
+    }
+  }
+
+  &__list{
+    position: absolute;
+    top: 72px;
+    left: 0px;
+    width: 267px;
+    border-radius: 10px;
+    background-color: $contextGrey;
+    height: 0px;
+    // opacity: 0;
+    overflow: hidden;
+    transition-duration: 0.25s;
+
+    &_open{
+      height: 96px;
+      transition-duration: 0.25s;
+      // opacity: 1;
+    }
+  }
+
+  &__list-item{
+    height: 48px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    text-decoration: none;
+    color: $graphite;
+    font-weight: 500;
+
+    &:hover{
+      opacity: 0.7;
+    }
+
+    &_bottom{
+      color: $primaryColor;
+      font-weight: 500;
+    }
+  }
+
+  &__list-line{
+    height: 1px;
+    width: 100%;
+    background-color: $contextWhite;
+  }
+
+}
+
+:global(.dark) .user__list{
+  background-color: $dark;
+}
+
+:global(.dark) .movie-item__list-line{
+  color: $contextWhite;
+  background-color: $graphite;
+}
+
+

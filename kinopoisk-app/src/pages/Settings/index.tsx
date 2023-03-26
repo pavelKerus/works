@@ -5,11 +5,12 @@ import { themeDarkAction,themeLightAction } from "../../reduxTools/theme/actions
 import {useEffect,useState} from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "../../reduxTools/store";
-import { ButtonSecondary } from "../../components/Buttons/ButtonSecondary";
 import { ButtonPrimary } from "../../components/Buttons/ButtonPrimary";
+import { useNavigate } from "react-router-dom";
 
 export const Settings = () => {
   const theme = useSelector((state:AppState) => state.theme.themeState)
+  const user = useSelector((state:AppState) => state.auth.user)
   const dispatch = useDispatch()
 
   const handleChecked = () => {
@@ -24,8 +25,8 @@ export const Settings = () => {
       <div className={styles["settings__item"]}>
         <p className={styles["settings__title"]}>Profile</p>
         <div className={styles["settings__container"]}>
-          <Input type="text" label="Name"/>
-          <Input type="email" label="Email"/>
+          <Input type="text" label="Name" defaultValue={user?.username}/>
+          <Input type="email" label="Email" defaultValue={user?.email}/>
         </div>
       </div>
 

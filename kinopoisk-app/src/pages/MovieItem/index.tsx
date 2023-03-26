@@ -14,15 +14,21 @@ import { CardRecommend } from "../../components/CardRecommend";
 import { ButtonWithIcon } from "../../components/ButtonWithIcon";
 import { FavoritesIcon } from "../../components/assets/icons/FavoritesIcon/FavoritesIcon";
 import { ShareIcon } from "../../components/assets/icons/ShareIcon/ShareIcon";
+import { addFavoritesAction,deleteFavoritesAction } from "../../reduxTools/favorites/actions";
 
 export const MovieItem = () => {
+  const favorites = useSelector((state:AppState) => state.favorites.favorites)
   const {id} = useParams()
   const movie = useSelector((state:AppState) => state.movieItem.movie)
   const dispatch = useDispatch()
-  
+
   useEffect(() => {
     dispatch(asyncLoadMovieItemAction(id))
   },[id])
+
+  useEffect(() => {
+    localStorage.setItem("favorites",JSON.stringify(favorites))
+  },[favorites])
   
   return(
     <>
@@ -44,11 +50,11 @@ export const MovieItem = () => {
               <img src={movie.poster.url} className={styles["movie-item__poster"]} alt=""/>
             </div>
             <div className={styles["movie-item__buttons-group"]}>
-              <ButtonWithIcon className={styles["movie-item__favorite-button"]}>
+              <label htmlFor="fav" className={styles["movie-item__favorite-button"]}>
+                <input id="fav" type="checkbox" checked={favorites.some((el) => (el.id === movie.id))} onChange={() => favorites.some((el) => el.id === movie.id) ? dispatch(deleteFavoritesAction(movie)) : dispatch(addFavoritesAction(movie))} />
                 <FavoritesIcon/>
-              </ButtonWithIcon>
-              <div className={styles["line"]}>
-              </div>
+              </label>
+              <div className={styles["line"]}></div>
               <ButtonWithIcon className={styles["movie-item__share-button"]}>
                 <ShareIcon/>
               </ButtonWithIcon>

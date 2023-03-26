@@ -12,14 +12,14 @@
 }
 
 .search{
-  max-width: 1200px;
+  width: 1200px;
   position: relative;
   display: flex;
   align-items: center;
   margin: 0px;
   padding: 0px;
-  width: 100%;
   margin-left: 138px;
+  margin-right: 40px;
 
   &:hover{
     opacity: 0.7;
@@ -27,6 +27,17 @@
 
   @media (max-width:1400px) {
     margin-right: 72px;
+  }
+
+  @media (max-width:1000px) {
+    margin-left: 80px;
+  }
+
+  @media (max-width:720px) {
+    margin: 0px;
+    margin-top: 24px;
+    width: 100%;
+    padding: 0px;
   }
   
   &__input{
@@ -41,6 +52,10 @@
 
     &:focus{
       border: 2px solid $primaryColor;
+    }
+
+    @media (max-width:720px) {
+      width: 100%;
     }
 
   }

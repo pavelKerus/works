@@ -1,6 +1,6 @@
 @import "../../styles/variables.scss";
 
-.signin-link{
+.signup-link{
   color: $primaryColor;
   margin-left: 4px;
   text-decoration: none;
@@ -10,10 +10,18 @@
   }
 }
 
-.signin-hint{
+.signup-hint{
   display: flex;
   color: $secondary;
   margin-top: 32px;
   width: 100%;
   justify-content: center;
 }
+
+.signup{
+
+  label+label{
+    margin-top: 24px!important;
+  }
+}
+

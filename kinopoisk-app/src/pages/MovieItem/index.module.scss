@@ -70,6 +70,8 @@
   &__buttons-group{
     display: flex;
     margin-top: 32px;
+    border-radius: 10px;
+    overflow: hidden;
   }
 
   &__rating-imdb,&__movie-length{
@@ -143,21 +145,48 @@
   }
 
   &__favorite-button{
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
     flex-grow: 1;
+    background-color: $contextGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover{
+      opacity: 0.7;
+    }
+
+    &:hover *{
+      fill:$contextWhite;
+    }
+
+    & input {
+      display: none;
+    }
+
+    & input:checked+div *{
+      fill: $primaryColor
+    }
   }
 
   &__share-button{
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
     flex-grow: 1;
+    background-color: $contextGrey;
+
+    &:hover{
+      opacity: 0.7;
+    }
+
+    &:hover *{
+      fill:$contextWhite!important;
+    }
   }
 
 }
 
 .line{
-  flex-basis: 1px;
+  flex-basis: 2px;
+  background-color: $contextWhite;
 }
 
 :global(.dark) .movie-item__rating-imdb {
@@ -168,6 +197,18 @@
 :global(.dark) .movie-item__movie-length{
   background-color: $graphite;
   outline: none;
+}
+
+:global(.dark) .movie-item__favorite-button{
+  background-color: $graphite;
+}
+
+:global(.dark) .movie-item__share-button{
+  background-color: $graphite;
+}
+
+:global(.dark) .line{
+  background-color: $contextGrey;
 }
 
 

@@ -16,3 +16,42 @@ export interface MovieItemActionType extends BasicActionType{
 export interface MovieItemState{
   movie: MovieItem,
 }
+
+export interface ObjectStringList {
+  [key:string]:string[]
+}
+
+export interface UserType {
+  id : number,
+  email: string,
+  username: string
+}
+
+export interface ActivateUserActionType extends BasicActionType {
+  payload?:ObjectStringList
+}
+
+export  interface tokenDto{
+  access:string,
+  refresh:string
+}
+
+export interface AuthUserActionType extends BasicActionType{
+  payload:tokenDto | ObjectStringList | UserType
+}
+
+export interface AuthStateType {
+  tokens:tokenDto | null,
+  errors : ObjectStringList | null
+  user: null | UserType
+}
+
+export interface LoadRegisterActionType extends BasicActionType {
+  payload: UserType | ObjectStringList;
+}
+
+export interface RegisterStateType {
+  isRegistered: boolean;
+  user?: UserType;
+  errors?: ObjectStringList;
+}
