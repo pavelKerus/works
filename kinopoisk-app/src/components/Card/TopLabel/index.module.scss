@@ -1,0 +1,15 @@
+@import "../../../styles/variables.scss";
+
+.top-label{
+  font-weight: 600;
+  padding: 2px 8px;
+  background-color:#C8C459;
+  color: $contextWhite;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.position{
+  margin-left: 4px;
+}

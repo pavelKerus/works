@@ -11,6 +11,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 20px;
+    text-decoration: none;
 
     @media (max-width: 1400px){
       height: 279px;
@@ -44,10 +45,27 @@
     height: 100%;
   }
 
-  &__rating{
+  &__no-image{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-weight: 500;
+    font-size: 24px;
+    color: white;
+    background-color: $graphite;
+  }
+
+  &__labels{
     position: absolute;
     top:20px;
-    left:20px;
+    left: 20px;
+    display: flex;
+  }
+
+  &__rating{
+    margin-right: 12px;
   }
 
   &__title{

@@ -1,5 +1,33 @@
 @import "../../styles/variables.scss";
 
+.sign-in{
+
+  &__spinner{
+    position: relative;
+    bottom: 4px;
+    border-width: 3px!important;
+  }
+
+  &__errors{
+    color: $contextError;
+    position: relative;
+    top: -10px;
+  }
+
+  &__form-errors{
+    margin-top: 4px;
+    color: $contextError;
+    font-size: 14px;
+  }
+}
+
+.sign-in label{
+
+  &~label{
+    margin-top: 24px!important;
+  }
+}
+
 .reset-link{
   color:$secondary;
   margin-top: 8px;
@@ -13,7 +41,7 @@
   }
 }
 
-.signup-link{
+.signin-link{
   color: $primaryColor;
   margin-left: 4px;
   text-decoration: none;
@@ -23,7 +51,7 @@
   }
 }
 
-.signup-hint{
+.signin-hint{
   display: flex;
   color: $secondary;
   margin-top: 32px;

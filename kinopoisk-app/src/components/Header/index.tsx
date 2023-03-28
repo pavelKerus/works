@@ -14,7 +14,7 @@ export const Header = () => {
             <Logo />
           </NavLink>
           <Search />
-          <User/>
+          <User />
         </div>
       </Container>
     </div>

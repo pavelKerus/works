@@ -112,9 +112,12 @@
   background-color: $dark;
 }
 
-:global(.dark) .movie-item__list-line{
-  color: $contextWhite;
+:global(.dark) .user__list-line{
   background-color: $graphite;
+}
+
+:global(.dark) .user__list-item_top{
+  color: $contextWhite;
 }
 
 

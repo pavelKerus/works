@@ -1,4 +1,6 @@
-export const array = [
+import { MovieItem } from "../../types/MovieItem";
+
+export const moviesOffline:MovieItem[] = [
   {
       "externalId": {
           "kpHD": "4127663ed234fa8584aeb969ceb02cd8",

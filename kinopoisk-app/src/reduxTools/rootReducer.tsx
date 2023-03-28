@@ -7,6 +7,9 @@ import { filterReducer } from "./filter/filterReducer";
 import { authReducer } from "./auth/authReducer";
 import { registerReducer } from "./registration/registrationReducer";
 import { favoritesReducer } from "./favorites/favoritesReducer";
+import { searchResultsReducer } from "./search/searchResultsReducer";
+import { searchParamsReducer } from "./search/searchParamsReducer";
+import { top250Reducer } from "./top250/top250Reducer";
 
 export const rootReducer = combineReducers({
   theme: themeReducer,
@@ -17,4 +20,7 @@ export const rootReducer = combineReducers({
   auth: authReducer,
   register: registerReducer,
   favorites: favoritesReducer,
+  searchParams:searchParamsReducer,
+  searchResults:searchResultsReducer,
+  top250:top250Reducer,
 });

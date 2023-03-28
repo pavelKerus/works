@@ -12,6 +12,7 @@ import { Genre } from "./Genre";
 import styles from "./index.module.scss";
 import { RatingKP } from "./RatingKP";
 import { useEffect } from "react";
+import { TopLabel } from "./TopLabel";
 
 interface MovieItemWithFavorite extends MovieItem {
   movie: MovieItem;
@@ -19,12 +20,11 @@ interface MovieItemWithFavorite extends MovieItem {
 
 export const Card = (props: MovieItemWithFavorite) => {
   const favorites = useSelector((state: AppState) => state.favorites.favorites);
-  const { poster, rating, name, genres, id, movie } = props;
+  const { poster, rating, name, genres, id, movie, top250 } = props;
   const dispatch = useDispatch();
-
   useEffect(() => {
-    localStorage.setItem("favorites",JSON.stringify(favorites))
-  },[favorites])
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   return (
     <div className={styles.card}>
@@ -32,19 +32,24 @@ export const Card = (props: MovieItemWithFavorite) => {
         to={`movieItem/${id}`}
         className={styles["card__image-container"]}
       >
-        <img src={poster.url} className={styles["card__image"]} alt="" />
-        {rating ? (
-          <RatingKP rating={rating.kp} className={styles["card__rating"]} />
-        ) : null}
+        {poster ? (
+          <img src={poster.url} className={styles["card__image"]} alt="" />
+        ) : (
+          <div className={styles["card__no-image"]}>No poster</div>
+        )}
+        <div className={styles["card__labels"]}>
+          {rating ? (
+            <RatingKP rating={rating.kp} className={styles["card__rating"]} />
+          ) : null}
+          {top250 ? <TopLabel top250={top250} /> : null}
+        </div>
       </NavLink>
       <Favorite
         checked={favorites.some((el) => (el.id === id ? true : false))}
         onChange={() =>
-          favorites.some((el) =>
-            el.id === id)
-              ? dispatch(deleteFavoritesAction(movie))
-              : dispatch(addFavoritesAction(movie))
-          
+          favorites.some((el) => el.id === id)
+            ? dispatch(deleteFavoritesAction(movie))
+            : dispatch(addFavoritesAction(movie))
         }
       />
       <NavLink to={`movieItem/${id}`} className={styles["card__title"]}>

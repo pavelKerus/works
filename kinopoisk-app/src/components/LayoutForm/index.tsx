@@ -6,16 +6,16 @@ import { LogoForm } from "../assets/icons/Logo";
 import { Container } from "../Container";
 
 export const LayoutForm = () => {
-  const theme = useSelector((state:AppState) => state.theme.themeState)
-  return(
+  const theme = useSelector((state: AppState) => state.theme.themeState);
+  return (
     <div className={theme == "dark" ? `${styles.root} dark` : styles.root}>
       <Container className={styles["logo-container"]}>
-        <LogoForm/>
+        <LogoForm />
       </Container>
       <Container className={styles["form-container"]}>
-        <Outlet/>
+        <Outlet />
       </Container>
       <div className={styles.rights}>© All Rights Reserved</div>
     </div>
-  )
-}
+  );
+};

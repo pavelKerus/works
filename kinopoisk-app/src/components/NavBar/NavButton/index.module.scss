@@ -32,7 +32,12 @@
   color: $primaryColor2;
 }
 
+.nav-button__icon *{
+  fill: $secondary;
+}
+
 .active *{
   fill: $primaryColor;
   color: $primaryColor;
 }
+

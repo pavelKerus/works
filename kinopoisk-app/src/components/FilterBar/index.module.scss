@@ -11,6 +11,12 @@
   background-color: $dark;
   transition-duration: 0.25s;
 
+  @media (max-width:576px) {
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
   &__title{
     font-weight: 600;
     font-size: 24px;
@@ -18,6 +24,81 @@
     display: flex;
     align-items: center;
   }
+
+  &__sort{
+    height: 48px;
+    background-color:$graphite;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid $graphite;
+
+    & input{
+      display: none;
+    }
+  }
+
+  &__label{
+    font-weight: 600;
+
+    &_sort{
+      margin-bottom: 8px;
+    }
+
+    &_years{
+      margin-top: 24px;
+    }
+
+    &_rating{
+      margin-top: 24px;
+    }
+  }
+
+  &__radio-switcher{
+    position: absolute;
+    top:0px;
+    right: 0px;
+    width: 50%;
+    height: 48px;
+    background-color: $dark;
+  }
+
+  &__radio-ratings{
+    height: 100%;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    & input:checked+div{
+      left: 0px;
+    }
+  }
+
+  &__rating-title{
+    position: absolute;
+    text-align: center;
+    z-index: 2;
+  }
+
+  &__radio-year{
+    height: 100%;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__year-title{
+    position: absolute;
+    text-align: center;
+    z-index: 2;
+  }
+
+  
 
   &__close-button{
     width: 48px;
@@ -35,12 +116,32 @@
   &__header{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 40px;
   }
 
   &__buttons-group{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 40px;
+
+    @media (max-width:576px) {
+      grid-column-gap:20px;
+    }
+
+    @media (max-width:576px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__inputs-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 40px;
+    width: 100%;
+
+    @media (max-width:576px) {
+      grid-column-gap:20px;
+    }
   }
 }
 

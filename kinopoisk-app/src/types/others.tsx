@@ -1,5 +1,5 @@
 import { MovieItem } from "./MovieItem";
-import { Movies } from "./Movies";
+import { Movies, MoviesTop } from "./Movies";
 
 export interface BasicActionType{
   type:string,
@@ -7,6 +7,10 @@ export interface BasicActionType{
 
 export interface MoviesActionType extends BasicActionType{
   payload: Movies,
+}
+
+export interface MoviesTopActionType extends BasicActionType{
+  payload: MoviesTop,
 }
 
 export interface MovieItemActionType extends BasicActionType{
@@ -55,3 +59,4 @@ export interface RegisterStateType {
   user?: UserType;
   errors?: ObjectStringList;
 }
+

@@ -15,16 +15,33 @@ export const SCREEN_720 = 720;
 export const SCREEN_680 = 680;
 export const SCREEN_380 = 380;
 
+export interface useResizeResult {
+  width: number;
+  isScreen3400: boolean;
+  isScreen3150: boolean;
+  isScreen2800: boolean;
+  isScreen2400: boolean;
+  isScreen2000: boolean;
+  isScreen1600: boolean;
+  isScreen1400: boolean;
+  isScreen1150: boolean;
+  isScreen1000: boolean;
+  isScreen850: boolean;
+  isScreen720: boolean;
+  isScreen680: boolean;
+  isScreen380: boolean;
+}
+
 export const useResize = () => {
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    const handleResize = (event:any) => {
+    const handleResize = (event: any) => {
       setWidth(event.target.innerWidth);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -44,4 +61,4 @@ export const useResize = () => {
     isScreen680: width <= SCREEN_680,
     isScreen380: width <= SCREEN_380,
   };
-}
+};

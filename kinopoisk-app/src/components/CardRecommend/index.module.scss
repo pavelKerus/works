@@ -3,6 +3,7 @@
 .card-recommend{
   display: flex;
   flex-direction: column;
+  align-items: center;
   // width: 256px;
 
   &__image-container{
@@ -10,6 +11,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 20px;
+    cursor: pointer;
   }
 
   &__image{
@@ -22,10 +24,10 @@
     margin-top: 24px;
     font-weight: 700;
     text-decoration: none;
-    color: $contextWhite;
+    color: $dark;
 
     &:hover{
-      color: $primaryColor;
+      color: $primaryColor!important;
     }
   }
 
@@ -33,4 +35,8 @@
 
 .card-recommend+.card-recommend{
   margin-left: 40px;
+}
+
+:global(.dark) .card-recommend__title{
+  color: $contextWhite;
 }

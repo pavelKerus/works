@@ -1,5 +1,9 @@
 @import "../../styles/variables.scss";
 
-.signin-reset{
-  margin-bottom: 40px;
+.resetThree label{
+
+  &+label{
+    margin-top: 24px!important;
+  }
+  
 }
