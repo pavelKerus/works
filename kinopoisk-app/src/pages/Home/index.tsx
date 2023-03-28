@@ -13,40 +13,45 @@ export const Home = () => {
   const movies = useSelector((state:AppState) => state.movies.docs)
   const dispatch = useDispatch()
   const screenSize = useResize()
-  const [limit,setLimit] = useState(0)
+  const [page,setPage] = useState(1)
+  const [loading,setLoading] = useState(false)
+  let limit = 0
 
   if (screenSize.isScreen380){
-    setLimit(10)
+    limit=10
   } else if (screenSize.isScreen680){
-    setLimit(10)
+    limit=10
   } else if (screenSize.isScreen720){
-    setLimit(9)
+    limit=9
   } else if (screenSize.isScreen850){
-    setLimit(9)
+    limit=9
   } else if (screenSize.isScreen1000){
-    setLimit(8)
+    limit=8
   } else if (screenSize.isScreen1150){
-    setLimit(8)
+    limit=8
   } else if (screenSize.isScreen1400){
-    setLimit(10)
+    limit=10
   } else if (screenSize.isScreen1600){
-    setLimit(12)
+    limit=12
   } else if (screenSize.isScreen2000){
-    setLimit(12)
+    limit=12
   } else if (screenSize.isScreen2400){
-    setLimit(15)
+    limit=15
   } else if (screenSize.isScreen2800){
-    setLimit(18)
+    limit=18
   } else if (screenSize.isScreen3150){
-    setLimit(21)
+    limit=21
   } else if (screenSize.isScreen3400) {
-    setLimit(24)
+    limit=24
   } 
   else{
-    setLimit(27)
+    limit=27
   }
 
-  useEffect(() => dispatch(asyncLoadMoviesAction(limit)),[limit])
+  useEffect(() => {
+    dispatch(asyncLoadMoviesAction(limit,page))
+    setLoading(false)
+  },[limit,page])
   
   return(
     <div className={styles.home}>
@@ -61,7 +66,11 @@ export const Home = () => {
             genres={movie.genres}
           />)}
       </div>
-      <ButtonShowMore loading={true} onClick={() => setLimit(limit+limit)}/>
+      <ButtonShowMore loading={false} onClick={() => {
+        setLoading(true)
+        setPage(page+1)
+        }
+      }/>
     </div>
   )
 }
