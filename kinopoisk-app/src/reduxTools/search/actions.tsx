@@ -37,7 +37,9 @@ export interface SearchResultsActionType {
   payload: Movies;
 }
 
-export const changeSearchValueAction = (searchValue: string):SearchParamsActionType => {
+export const changeSearchValueAction = (
+  searchValue: string
+): SearchParamsActionType => {
   return {
     type: CHANGE_SEARCH_VALUE,
     payload: {
@@ -63,16 +65,22 @@ export const clearParamsAction = (): ClearParamsActionType => {
   };
 };
 
-export const searchResultsAction = (movies: Movies):SearchResultsActionType => {
+export const searchResultsAction = (
+  movies: Movies
+): SearchResultsActionType => {
   return {
     type: SEARCH_RESULTS,
     payload: movies,
   };
 };
 
-export const asyncLoadSearchMoviesAction = (params: SearchParamsState,page:number,limit:number): any => {
+export const asyncLoadSearchMoviesAction = (
+  params: SearchParamsState,
+  page: number,
+  limit: number
+): any => {
   return (dispatch: AppDispatch): any => {
-    searchMoviesResponse(params,page,limit).then((movies: Movies) =>
+    searchMoviesResponse(params, page, limit).then((movies: Movies) =>
       dispatch(searchResultsAction(movies))
     );
   };

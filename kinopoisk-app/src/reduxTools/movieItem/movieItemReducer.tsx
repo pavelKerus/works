@@ -1,9 +1,9 @@
-import { MovieItemActionType,MovieItemState } from "../../types/others";
+import { MovieItemActionType, MovieItemState } from "../../types/others";
 import { LOAD_MOVIEITEM } from "./actions";
 import { MovieItem } from "../../types/MovieItem";
 
 const defaultState: MovieItemState = {
-  movie:{} as MovieItem
+  movie: {} as MovieItem,
 };
 
 export const movieItemReducer = (
@@ -14,7 +14,7 @@ export const movieItemReducer = (
     case LOAD_MOVIEITEM:
       return {
         ...state,
-        movie: action.payload
+        movie: action.payload,
       };
     default:
       return state;

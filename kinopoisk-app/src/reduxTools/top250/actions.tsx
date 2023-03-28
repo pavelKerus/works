@@ -13,11 +13,10 @@ export const loadTop250Action = (movies: MoviesTop): MoviesTopActionType => {
   };
 };
 
-export const asyncLoadTop250Action = (limit:number,page:number): any => {
+export const asyncLoadTop250Action = (limit: number, page: number): any => {
   return (dispatch: AppDispatch): any => {
-    top250Response(limit,page)
-      .then((movies: MoviesTop) =>
-        dispatch(loadTop250Action(movies))
-      );
+    top250Response(limit, page).then((movies: MoviesTop) =>
+      dispatch(loadTop250Action(movies))
+    );
   };
 };

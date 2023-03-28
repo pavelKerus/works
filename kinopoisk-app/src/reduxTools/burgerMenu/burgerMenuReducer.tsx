@@ -1,26 +1,29 @@
-import { MenuAction, CHANGE_MENU_STATE, CLOSE_MENU} from "./actions"
+import { MenuAction, CHANGE_MENU_STATE, CLOSE_MENU } from "./actions";
 
 interface MenuState {
-  isOpen: boolean
+  isOpen: boolean;
 }
 
 const defaultState: MenuState = {
-  isOpen:false
-}
+  isOpen: false,
+};
 
-export const burgerMenuReducer = (state:MenuState = defaultState, action: MenuAction):MenuState => {
-  switch(action.type){
+export const burgerMenuReducer = (
+  state: MenuState = defaultState,
+  action: MenuAction
+): MenuState => {
+  switch (action.type) {
     case CHANGE_MENU_STATE:
-      return{
+      return {
         ...state,
-        isOpen: !state.isOpen
-      }
+        isOpen: !state.isOpen,
+      };
     case CLOSE_MENU:
-      return{
+      return {
         ...state,
-        isOpen: false
-      }
+        isOpen: false,
+      };
     default:
-      return state
+      return state;
   }
-}
+};

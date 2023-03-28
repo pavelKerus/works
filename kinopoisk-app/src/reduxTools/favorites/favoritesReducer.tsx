@@ -6,7 +6,7 @@ export interface FavoritesState {
 }
 
 const defaultState = {
-  favorites: JSON.parse(localStorage.getItem("favorites") || '[]')
+  favorites: JSON.parse(localStorage.getItem("favorites") || "[]"),
 };
 
 export const favoritesReducer = (

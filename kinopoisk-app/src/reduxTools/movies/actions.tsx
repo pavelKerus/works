@@ -18,9 +18,8 @@ export const asyncLoadMoviesAction = (
   page: number = 1
 ): any => {
   return (dispatch: AppDispatch): any => {
-    moviesResponse(numberOfMovies, page)
-      .then((movies: Movies) =>
-        dispatch(loadMoviesAction(movies))
-      );
+    moviesResponse(numberOfMovies, page).then((movies: Movies) =>
+      dispatch(loadMoviesAction(movies))
+    );
   };
 };

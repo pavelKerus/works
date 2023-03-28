@@ -1,8 +1,5 @@
 import { Movies } from "../../types/Movies";
-import {
-  SEARCH_RESULTS,
-  SearchResultsActionType,
-} from "./actions";
+import { SEARCH_RESULTS, SearchResultsActionType } from "./actions";
 import { MovieItem } from "../../types/MovieItem";
 
 const defaultState: Movies = {

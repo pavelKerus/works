@@ -116,7 +116,6 @@ export const registerUser = async (
     status: response.status,
     data: result,
   };
-  // return fetch(request).then((res) => res.json());
 };
 
 export const activateUser = async (uid: string, token: string) => {
@@ -133,14 +132,13 @@ export const activateUser = async (uid: string, token: string) => {
   });
 
   const response = await fetch(request);
-  // const result = await response.json();
+
   const result = await (response.ok ? Promise.resolve(null) : response.json());
   return {
     ok: response.ok,
     status: response.status,
     data: result,
   };
-  // return fetch(request).then((res) => res.json());
 };
 
 export const getTokensUser = async (email: string, password: string) => {

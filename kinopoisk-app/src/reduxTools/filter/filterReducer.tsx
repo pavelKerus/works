@@ -1,26 +1,29 @@
-import { FilterAction, OPEN_FILTER, CLOSE_FILTER} from "./actions"
+import { FilterAction, OPEN_FILTER, CLOSE_FILTER } from "./actions";
 
 interface FilterState {
-  isOpen: boolean
+  isOpen: boolean;
 }
 
 const defaultState: FilterState = {
-  isOpen:false
-}
+  isOpen: false,
+};
 
-export const filterReducer = (state:FilterState = defaultState, action: FilterAction):FilterState => {
-  switch(action.type){
+export const filterReducer = (
+  state: FilterState = defaultState,
+  action: FilterAction
+): FilterState => {
+  switch (action.type) {
     case OPEN_FILTER:
-      return{
+      return {
         ...state,
-        isOpen: true
-      }
+        isOpen: true,
+      };
     case CLOSE_FILTER:
-      return{
+      return {
         ...state,
-        isOpen: false
-      }
+        isOpen: false,
+      };
     default:
-      return state
+      return state;
   }
-}
+};

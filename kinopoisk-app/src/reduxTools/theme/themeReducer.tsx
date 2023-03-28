@@ -1,26 +1,29 @@
-import { ThemeAction, THEME_DARK,THEME_LIGHT } from "./actions"
+import { ThemeAction, THEME_DARK, THEME_LIGHT } from "./actions";
 
 interface ThemeState {
-  themeState: string
+  themeState: string;
 }
 
 const defaultState: ThemeState = {
-  themeState: localStorage.getItem('theme') || 'light'  
-}
+  themeState: localStorage.getItem("theme") || "light",
+};
 
-export const themeReducer = (state:ThemeState = defaultState, action: ThemeAction):ThemeState => {
-  switch(action.type){
+export const themeReducer = (
+  state: ThemeState = defaultState,
+  action: ThemeAction
+): ThemeState => {
+  switch (action.type) {
     case THEME_DARK:
-      return{
+      return {
         ...state,
-        themeState:"dark"
-      }
+        themeState: "dark",
+      };
     case THEME_LIGHT:
-      return{
+      return {
         ...state,
-        themeState:"light"
-      }
+        themeState: "light",
+      };
     default:
-      return state
+      return state;
   }
-}
+};

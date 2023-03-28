@@ -20,7 +20,7 @@ export const rootReducer = combineReducers({
   auth: authReducer,
   register: registerReducer,
   favorites: favoritesReducer,
-  searchParams:searchParamsReducer,
-  searchResults:searchResultsReducer,
-  top250:top250Reducer,
+  searchParams: searchParamsReducer,
+  searchResults: searchResultsReducer,
+  top250: top250Reducer,
 });

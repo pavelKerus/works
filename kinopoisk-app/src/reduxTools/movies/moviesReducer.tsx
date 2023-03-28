@@ -19,7 +19,7 @@ export const moviesReducer = (
     case LOAD_MOVIES:
       return {
         ...state,
-        docs: [...state.docs,...action.payload.docs],
+        docs: [...state.docs, ...action.payload.docs],
         total: action.payload.total,
         limit: action.payload.limit,
         page: action.payload.page,

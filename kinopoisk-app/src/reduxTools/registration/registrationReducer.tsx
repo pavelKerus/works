@@ -1,5 +1,13 @@
-import { ObjectStringList, UserType, LoadRegisterActionType, RegisterStateType} from "../../types/others";
-import { REGISTRATION_SUCCESS, REGISTRATION_FAILED} from "./registrationActions";
+import {
+  ObjectStringList,
+  UserType,
+  LoadRegisterActionType,
+  RegisterStateType,
+} from "../../types/others";
+import {
+  REGISTRATION_SUCCESS,
+  REGISTRATION_FAILED,
+} from "./registrationActions";
 
 const defaultState: RegisterStateType = {
   isRegistered: false,

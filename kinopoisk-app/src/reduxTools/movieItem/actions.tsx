@@ -12,10 +12,10 @@ export const loadMovieItemAction = (movie: MovieItem): MovieItemActionType => {
   };
 };
 
-export const asyncLoadMovieItemAction = ( id:string | undefined): any => {
+export const asyncLoadMovieItemAction = (id: string | undefined): any => {
   return (dispatch: AppDispatch) => {
-    moviesResponseById(id)
-      .then((movie: MovieItem) => dispatch(loadMovieItemAction(movie)));
+    moviesResponseById(id).then((movie: MovieItem) =>
+      dispatch(loadMovieItemAction(movie))
+    );
   };
 };
-

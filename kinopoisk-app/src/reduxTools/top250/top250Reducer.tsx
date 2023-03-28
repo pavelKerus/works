@@ -20,7 +20,7 @@ export const top250Reducer = (
     case LOAD_TOP250:
       return {
         ...state,
-        docs: [...state.docs,...action.payload.docs],
+        docs: [...state.docs, ...action.payload.docs],
         total: action.payload.total,
         limit: action.payload.limit,
         page: action.payload.page,
