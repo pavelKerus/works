@@ -8,7 +8,7 @@ import styles from "./index.module.scss";
 import { Genre } from "../../components/Card/Genre";
 import { RatingKP } from "../../components/Card/RatingKP";
 import { ImdbLogo } from "../../components/assets/icons/ImdbLogo";
-import { movie } from "../../reduxTools/offlineStates/movieItemOffline";
+
 import { SimpleSlider } from "../../components/SimpleSlider";
 import { CardRecommend } from "../../components/CardRecommend";
 import { ButtonWithIcon } from "../../components/ButtonWithIcon";
@@ -22,13 +22,13 @@ import { TopLabel } from "../../components/Card/TopLabel";
 
 export const MovieItem = () => {
   const favorites = useSelector((state: AppState) => state.favorites.favorites);
-  // const { id } = useParams();
-  // const movie = useSelector((state: AppState) => state.movieItem.movie);
+  const { id } = useParams();
+  const movie = useSelector((state: AppState) => state.movieItem.movie);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(asyncLoadMovieItemAction(id));
-  // }, [id]);
+  useEffect(() => {
+    dispatch(asyncLoadMovieItemAction(id));
+  }, [id]);
 
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));

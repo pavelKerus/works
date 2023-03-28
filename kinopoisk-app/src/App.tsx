@@ -18,8 +18,6 @@ import { RequireAuth } from "./hoc/RequireAuth";
 import { Search } from "./pages/Search";
 import { Top250 } from "./pages/Top250";
 
-// movieItem/:id
-
 function App() {
   return (
     <Routes>

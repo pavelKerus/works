@@ -1,6 +1,6 @@
 import { SearchParamsState } from "../reduxTools/search/actions";
 
-const TOKEN = "J4CFV29-VPKM86G-HKP5VWK-76KQMMC";
+const TOKEN = "9KCBPK3-NTD44YZ-P11SYY5-KSTPYAR";
 
 export const moviesResponse = (numberOfMovies: number, page: number) => {
   const URL = `https://api.kinopoisk.dev/v1/movie?page=${page}&limit=${numberOfMovies}`;
