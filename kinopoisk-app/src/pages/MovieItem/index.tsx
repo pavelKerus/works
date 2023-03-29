@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { AppState } from "../../reduxTools/store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { asyncLoadMovieItemAction } from "../../reduxTools/movieItem/actions";
 import styles from "./index.module.scss";
@@ -19,15 +19,23 @@ import {
   deleteFavoritesAction,
 } from "../../reduxTools/favorites/actions";
 import { TopLabel } from "../../components/Card/TopLabel";
+import { LoadingInPage } from "../../components/LoadingInPage";
 
 export const MovieItem = () => {
   const favorites = useSelector((state: AppState) => state.favorites.favorites);
   const { id } = useParams();
   const movie = useSelector((state: AppState) => state.movieItem.movie);
   const dispatch = useDispatch();
+  const [loadingInPage, setLoadingInPage] = useState(true);
+
+  const changeData = async (id: string | undefined) => {
+    await setLoadingInPage(true)
+    await dispatch(asyncLoadMovieItemAction(id));
+    await setLoadingInPage(false);
+  };
 
   useEffect(() => {
-    dispatch(asyncLoadMovieItemAction(id));
+    changeData(id);
   }, [id]);
 
   useEffect(() => {
@@ -36,7 +44,7 @@ export const MovieItem = () => {
 
   return (
     <>
-      {JSON.stringify(movie) != JSON.stringify({}) ? (
+      {JSON.stringify(movie) != JSON.stringify({}) && !loadingInPage ? (
         <div className={styles["movie-item"]}>
           <div className={styles["movie-item__info"]}>
             <div className={styles["movie-item__genres-container"]}>
@@ -66,11 +74,17 @@ export const MovieItem = () => {
 
             <div className={styles["movie-item__poster-side"]}>
               <div className={styles["movie-item__poster-container"]}>
-                <img
-                  src={movie.poster.url}
-                  className={styles["movie-item__poster"]}
-                  alt=""
-                />
+                {movie.poster ? (
+                  <img
+                    src={movie.poster.url}
+                    className={styles["movie-item__poster"]}
+                    alt=""
+                  />
+                ) : (
+                  <div className={styles["movie-item__poster-none"]}>
+                    No poster
+                  </div>
+                )}
               </div>
               <div className={styles["movie-item__buttons-group"]}>
                 <label
@@ -102,7 +116,7 @@ export const MovieItem = () => {
               </div>
               <div className={styles["movie-item__specs-grid"]}>
                 <p className={styles["movie-item__spec-name"]}>Year</p>
-                <p>{movie.year}</p>
+                <p>{movie.year ? movie.year : "—"}</p>
                 <p className={styles["movie-item__spec-name"]}>Released</p>
                 <p>
                   {movie.premiere
@@ -110,19 +124,21 @@ export const MovieItem = () => {
                       movie.premiere.world != undefined
                       ? movie.premiere.world.slice(0, 10)
                       : null
-                    : null}
+                    : "—"}
                 </p>
                 <p className={styles["movie-item__spec-name"]}>BoxOffice</p>
                 <p>
                   {movie.fees
-                    ? `${movie.fees.world.currency}${movie.fees.world.value}`
+                    ? movie.fees.world.currency && movie.fees.world.value
+                      ? `${movie.fees.world.currency}${movie.fees.world.value}`
+                      : "—"
                     : null}
                 </p>
                 <p className={styles["movie-item__spec-name"]}>Country</p>
                 <p className={styles["movie-item__spec-value"]}>
                   {movie.countries
                     ? movie.countries.map((country) => <p>{country.name}</p>)
-                    : null}
+                    : "—"}
                 </p>
                 {JSON.stringify(movie.productionCompanies) !=
                 JSON.stringify([]) ? (
@@ -141,13 +157,13 @@ export const MovieItem = () => {
                 ) : null}
                 <p className={styles["movie-item__spec-name"]}>Actors</p>
                 <p className={styles["movie-item__spec-value"]}>
-                  {movie.persons
+                  {movie.persons && movie.persons.length > 0
                     ? movie.persons.map((person) => {
                         if (person.enProfession == "actor") {
                           return <p>{person.name}</p>;
                         }
                       })
-                    : null}
+                    : "—"}
                 </p>
                 <p className={styles["movie-item__spec-name"]}>Director</p>
                 <p className={styles["movie-item__spec-value"]}>
@@ -170,26 +186,30 @@ export const MovieItem = () => {
                     : null}
                 </p>
               </div>
-              <p className={styles["movie-item__title-recommendation"]}>
-                Recommendations
-              </p>
-              <div className={styles["movie-item__recommendation"]}>
-                <SimpleSlider>
-                  {movie.similarMovies
-                    ? movie.similarMovies.map((movie) => (
+              {movie.similarMovies && movie.similarMovies.length > 0 ? (
+                <>
+                  <p className={styles["movie-item__title-recommendation"]}>
+                    Recommendations
+                  </p>
+                  <div className={styles["movie-item__recommendation"]}>
+                    <SimpleSlider>
+                      {movie.similarMovies.map((movie) => (
                         <CardRecommend
                           name={movie.name}
                           id={movie.id}
                           poster={movie.poster}
                         />
-                      ))
-                    : null}
-                </SimpleSlider>
-              </div>
+                      ))}
+                    </SimpleSlider>
+                  </div>
+                </>
+              ) : null}
             </div>
           </div>
         </div>
-      ) : null}
+      ) : (
+        <LoadingInPage loading={loadingInPage} />
+      )}
     </>
   );
 };

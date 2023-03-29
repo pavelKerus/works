@@ -52,6 +52,19 @@
     border-radius: 20px;
   }
 
+  &__poster-none{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-weight: 500;
+    font-size: 24px;
+    color: white;
+    background-color: $graphite;
+    border-radius: 20px;
+  }
+
   &__genres-container{
     display: flex;
     flex-wrap: wrap;

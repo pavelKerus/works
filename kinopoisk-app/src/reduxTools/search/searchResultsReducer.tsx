@@ -18,7 +18,7 @@ export const searchResultsReducer = (
     case SEARCH_RESULTS:
       return {
         ...state,
-        docs: action.payload.docs,
+        docs: [...state.docs,...action.payload.docs],
         total: action.payload.total,
         limit: action.payload.limit,
         page: action.payload.page,

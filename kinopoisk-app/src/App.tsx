@@ -28,9 +28,9 @@ function App() {
         <Route path="favorites" element={<Favorites />} />
         <Route path="favorites/movieItem/:id" element={<MovieItem />} />
         <Route path="search" element={<Search />} />
-        <Route path="search/movieItem/:id" element={<Search />} />
+        <Route path="search/movieItem/:id" element={<MovieItem />} />
         <Route path="top250" element={<Top250 />} />
-        <Route path="top250/movieItem/:id" element={<Top250 />} />
+        <Route path="top250/movieItem/:id" element={<MovieItem />} />
         <Route
           path="settings"
           element={
