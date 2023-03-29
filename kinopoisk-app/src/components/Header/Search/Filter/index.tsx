@@ -43,7 +43,7 @@ export const FilterIcon = () => {
         >
           <path
             d="M5 6L19 6M10 12H19M14 18H19"
-            stroke="white"
+            stroke="#AFB2B6"
             stroke-width="2"
             stroke-linecap="round"
           />
