@@ -1,5 +1,5 @@
 import { Movies } from "../../types/Movies";
-import { SEARCH_RESULTS, SearchResultsActionType } from "./actions";
+import { SEARCH_RESULTS, SearchResultsActionType, CLEAR_SEARCH_RESULTS, ClearSearchResultsActionType } from "./actions";
 import { MovieItem } from "../../types/MovieItem";
 
 const defaultState: Movies = {
@@ -12,7 +12,7 @@ const defaultState: Movies = {
 
 export const searchResultsReducer = (
   state: Movies = defaultState,
-  action: SearchResultsActionType
+  action: SearchResultsActionType | ClearSearchResultsActionType
 ): Movies => {
   switch (action.type) {
     case SEARCH_RESULTS:
@@ -24,6 +24,16 @@ export const searchResultsReducer = (
         page: action.payload.page,
         pages: action.payload.pages,
       };
+    
+    case CLEAR_SEARCH_RESULTS:
+      return{
+        ...state,
+        docs: [] as MovieItem[],
+        total: 0,
+        limit: 0,
+        page: 0,
+        pages: 0,
+      }
     default:
       return state;
   }

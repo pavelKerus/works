@@ -7,6 +7,7 @@ export const CHANGE_SEARCH_VALUE = "CHANGE_SEARCH_VALUE";
 export const CLEAR_PARAMS = "CLEAR_PARAMS";
 
 export const SEARCH_RESULTS = "SEARCH_RESULTS";
+export const CLEAR_SEARCH_RESULTS = "CLEAR_SEARCH_RESULTS";
 
 // export interface SearchResultsState{
 //   searchResults: Movies,
@@ -37,6 +38,10 @@ export interface SearchResultsActionType {
   payload: Movies;
 }
 
+export interface ClearSearchResultsActionType {
+  type: "CLEAR_SEARCH_RESULTS";
+}
+
 export const changeSearchValueAction = (
   searchValue: string
 ): SearchParamsActionType => {
@@ -59,9 +64,14 @@ export const changeParamsAction = (
 };
 
 export const clearParamsAction = (): ClearParamsActionType => {
-  console.log("clear1");
   return {
     type: CLEAR_PARAMS,
+  };
+};
+
+export const clearSearchResultsAction = (): ClearSearchResultsActionType => {
+  return {
+    type: CLEAR_SEARCH_RESULTS,
   };
 };
 

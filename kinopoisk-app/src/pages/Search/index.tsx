@@ -21,19 +21,18 @@ export const Search = () => {
   const [loading, setLoading] = useState(false);
   const [loadingInPage, setLoadingInPage] = useState(false);
   let limit = 2;
+
   useEffect(() => {
-    setLoadingInPage(true);
     dispatch(asyncLoadSearchMoviesAction(searchParams, page, limit));
   }, [searchParams, page, limit]);
 
   useEffect(() => {
     setLoading(false);
-    setLoadingInPage(false);
   }, [searchResults]);
 
   return (
     <>
-      {searchResults.docs.length > 0 && !loadingInPage ? (
+      {searchResults.docs.length > 0 ? (
         <div className={styles.search}>
           <div className={styles["cards-grid"]}>
             {searchResults.docs.map((movie) => (
@@ -59,7 +58,7 @@ export const Search = () => {
           ) : null}
         </div>
       ) : (
-        <LoadingInPage loading={loadingInPage} />
+        <LoadingInPage/>
       )}
     </>
   );

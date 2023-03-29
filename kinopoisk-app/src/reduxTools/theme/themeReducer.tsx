@@ -5,7 +5,7 @@ interface ThemeState {
 }
 
 const defaultState: ThemeState = {
-  themeState: localStorage.getItem("theme") || "light",
+  themeState: localStorage.getItem("theme") || "dark",
 };
 
 export const themeReducer = (

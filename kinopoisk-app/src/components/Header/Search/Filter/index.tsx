@@ -8,7 +8,11 @@ export const FilterIcon = () => {
 
   const checkEmptyParams = () => {
     if (
-      JSON.stringify(defaultStateSearchParams) === JSON.stringify(searchParams)
+      searchParams.ratingFrom == "" &&
+      searchParams.ratingTo == "" &&
+      searchParams.sortBy == "rating.kp" &&
+      searchParams.yearsFrom == "" &&
+      searchParams.yearsTo == ""
     ) {
       return true;
     } else {

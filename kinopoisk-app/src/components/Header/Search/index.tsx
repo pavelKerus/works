@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { openFilterAction } from "../../../reduxTools/filter/actions";
-import { changeSearchValueAction } from "../../../reduxTools/search/actions";
+import {
+  changeSearchValueAction,
+  clearSearchResultsAction,
+} from "../../../reduxTools/search/actions";
 import { FilterIcon } from "./Filter";
 import styles from "./index.module.scss";
 
@@ -21,6 +24,7 @@ export const Search = () => {
   };
 
   useEffect(() => {
+    dispatch(clearSearchResultsAction());
     dispatch(changeSearchValueAction(searchValue));
   }, [searchValue]);
 
