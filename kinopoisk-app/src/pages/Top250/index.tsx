@@ -31,7 +31,7 @@ export const Top250 = () => {
 
   return (
     <>
-      {JSON.stringify(top250) !== JSON.stringify([]) ? (
+      {top250.docs.length > 0 ? (
         <div className={styles.top}>
           <div className={styles["cards-grid"]}>
             {top250.docs.map((movie) => {

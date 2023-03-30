@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { openFilterAction } from "../../../reduxTools/filter/actions";
@@ -6,10 +7,13 @@ import {
   changeSearchValueAction,
   clearSearchResultsAction,
 } from "../../../reduxTools/search/actions";
+import { AppState } from "../../../reduxTools/store";
 import { FilterIcon } from "./Filter";
 import styles from "./index.module.scss";
 
 export const Search = () => {
+  const searchResults = useSelector((state:AppState) => state.searchResults.docs)
+  const searchParams = useSelector((state:AppState) => state.searchParams)
   const [searchValue, setSearchValue] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -23,9 +27,15 @@ export const Search = () => {
     navigate("/search");
   };
 
+  const hr = async () => {
+    await dispatch(clearSearchResultsAction())
+    await dispatch(changeSearchValueAction(searchValue));
+    await console.log(searchResults);
+    await console.log(searchParams);
+  }
+
   useEffect(() => {
-    dispatch(clearSearchResultsAction());
-    dispatch(changeSearchValueAction(searchValue));
+    hr()
   }, [searchValue]);
 
   return (

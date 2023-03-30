@@ -1,6 +1,6 @@
 import { SearchParamsState } from "../reduxTools/search/actions";
 
-const TOKEN = "J4CFV29-VPKM86G-HKP5VWK-76KQMMC";
+const TOKEN = "9KCBPK3-NTD44YZ-P11SYY5-KSTPYAR";
 
 export const moviesResponse = (numberOfMovies: number, page: number) => {
   const URL = `https://api.kinopoisk.dev/v1/movie?page=${page}&limit=${numberOfMovies}`;
@@ -46,8 +46,8 @@ export const searchMoviesResponse = (
   const { sortBy, yearsFrom, yearsTo, ratingFrom, ratingTo, value } = params;
   let URL = `https://api.kinopoisk.dev/v1/movie?sortField=${sortBy}&page=${page}&limit=${limit}`;
 
-  if (value !== null && value !== "") {
-    URL += `&name=${value}`;
+  if (value !== null && value !== "" && value !== undefined) {
+    URL += ("&name="+value);
   }
 
   while (true) {
@@ -79,7 +79,6 @@ export const searchMoviesResponse = (
       break;
     }
   }
-
   console.log(URL);
   const request = new Request(URL, {
     method: "GET",

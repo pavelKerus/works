@@ -38,7 +38,7 @@ export const Card = (props: MovieItemWithFavorite) => {
           <div className={styles["card__no-image"]}>No poster</div>
         )}
         <div className={styles["card__labels"]}>
-          {rating ? (
+          {rating.kp ? (
             <RatingKP rating={rating.kp} className={styles["card__rating"]} />
           ) : null}
           {top250 ? <TopLabel top250={top250} /> : null}

@@ -8,7 +8,7 @@ import { asyncLoadMoviesAction } from "../../reduxTools/movies/actions";
 import { useResize } from "../../components/screenSize/useResize";
 import { ButtonShowMore } from "../../components/ButtonShowMore";
 import { MovieItem } from "../../types/MovieItem";
-import { asyncLoadSearchMoviesAction } from "../../reduxTools/search/actions";
+import { asyncLoadSearchMoviesAction, clearSearchResultsAction } from "../../reduxTools/search/actions";
 import { calculateLimitOfMovies } from "../../components/screenSize/calculateLimitOfMovies";
 import { LoadingInPage } from "../../components/LoadingInPage";
 
@@ -19,8 +19,11 @@ export const Search = () => {
   const screenSize = useResize();
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [loadingInPage, setLoadingInPage] = useState(false);
   let limit = 2;
+
+  useEffect(() => {
+    setPage(1)
+  },[searchParams])
 
   useEffect(() => {
     dispatch(asyncLoadSearchMoviesAction(searchParams, page, limit));
